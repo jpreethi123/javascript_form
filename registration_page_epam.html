@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>17071A05F2</title>
+    <script>
+        function fun() {
+          var name1, password1, email1, phn1;
+            var res, reg, res1, reg1, res2, reg2;
+            name1 = document.getElementById("name").value;
+            password1 = document.getElementById("password").value;
+            email1 = document.getElementById("email").value;
+            phn1 = document.getElementById("phone number").value;
+           reg = /^[a-zA-Z][a-zA-Z]+$|g/;
+            res = name1.match(reg);
+            reg1 = /^[a-z][a-zA-Z0-9]+[@][a-zA-Z]+[/.][a-zA-Z]{3}$/g;
+            res1 = email1.match(reg1);
+            reg2 = /^[1-9][0-9]{9}$/g;
+            res2 = phn1.match(reg2);
+          if (name1 == null && name1 == "") {
+                alert("invalid name");
+
+            } else {
+                if (res != null) {
+                    if (name1.length < 6) {
+                        alert("name should be of maximum of 6 characters");
+                    } else {
+                        if (password1.length < 6) {
+                            alert("password should be minimum of 6 characters");
+                        } else {
+                            if (res1 == null) {
+                                alert("invalid email");
+                            } else {
+                                if (res2 == null) {
+                                    alert("invalid phone number");
+                                } else {
+                                    alert("form submitted");
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <label for="name">name: </label>
+        <input type="text" name="name" id="name" placeholder="name"><br><br>
+        <label for="password">password : </label>
+        <input type="text" name="password" id="password" placeholder="password"><br><br>
+        <label for="email">email:</label>
+        <input type="text" name="email" id="email" placeholder="email"><br><br>
+        <label for="phone number">phone number:</label>
+        <input type="text" name="phone number" id="phone number" maxlength="10" placeholder="phone number"><br><br>
+        <button type="button" onclick="fun()">submit</button>
+        <input type="reset">
+    </form>
+</body>
+
+</html>
